@@ -1,0 +1,47 @@
+# My-portfolio — production compose file.
+#
+# App only (bring your own reverse proxy):
+#   docker compose up -d
+#
+# App + Caddy with automatic HTTPS (recommended on the Oracle VM):
+#   cp deploy/Caddyfile deploy/Caddyfile   # already at deploy/Caddyfile
+#   echo "DOMAIN=yourdomain.com" > .env
+#   docker compose --profile edge up -d
+
+services:
+  portfolio:
+    build: .
+    image: ghcr.io/seanneol88/my-portfolio:latest
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      # Keep this while testing; drop it once Caddy fronts the app
+      # so the app is only reachable through the reverse proxy.
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: portfolio-caddy
+    profiles: ["edge"]
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in your .env file, e.g. DOMAIN=yourdomain.com}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - portfolio
+
+volumes:
+  caddy_data:
+  caddy_config:
