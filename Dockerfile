@@ -12,6 +12,9 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Guarantee public/ exists in the image even if the repo ships it empty
+# (Git does not track empty directories).
+RUN mkdir -p public
 RUN npm run build
 
 # ---- runner: minimal production image --------------------------
