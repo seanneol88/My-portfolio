@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>seanneol · level-up portfolio 🐟</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P');
+  :root{
+    --bg:#0a0a12; --panel:#14142231; --ink:#f2e6c9; --dim:#8a8aa8;
+    --green:#4ade80; --blue:#60a5fa; --red:#f87171; --gold:#fbbf24; --cyan:#22d3ee;
+  }
+  *{box-sizing:border-box;image-rendering:pixelated}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Press Start 2P',monospace;
+       min-height:100vh;display:grid;place-items:center;padding:16px;
+       background-image:radial-gradient(circle at 20% 10%,#1a1a2e,transparent 40%),
+                        radial-gradient(circle at 80% 90%,#16213e,transparent 40%);}
+  .wrap{width:min(880px,94vw)}
+  .panel{background:var(--panel);backdrop-filter:blur(6px);border:4px solid var(--ink);
+         box-shadow:0 0 0 4px #000,0 8px 24px #000c;border-radius:4px;padding:20px;position:relative}
+  .panel::before,.panel::after{content:'';position:absolute;width:8px;height:8px;background:var(--ink)}
+  .panel::before{top:-8px;left:-8px}.panel::after{bottom:-8px;right:-8px}
+  header{text-align:center;border-bottom:3px dashed var(--dim);padding-bottom:16px;margin-bottom:16px}
+  .sprite{display:inline-block;margin:0 auto 8px}
+  h1{font-size:clamp(18px,5vw,34px);letter-spacing:4px;margin:8px 0 0;
+     text-shadow:3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000}
+  .sub{color:var(--dim);font-size:10px;margin-top:8px;line-height:1.8}
+  .bars{margin:16px 0}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .bar-lab{color:var(--dim);font-size:9px;width:36px}
+  .seg{display:flex;gap:3px;flex:1}
+  .seg i{width:100%;height:10px;background:#000;border:1px solid var(--dim)}
+  .seg i.on{background:var(--c)}.seg i.off{opacity:.25}
+  .xp{color:var(--gold);font-size:9px;width:64px;text-align:right}
+  h2{font-size:12px;color:var(--cyan);margin:22px 0 10px;letter-spacing:2px}
+  .quest{border-left:3px solid var(--green);padding:6px 10px;margin:8px 0;background:#00000033}
+  .quest .q-t{font-size:10px;color:var(--green)}
+  .quest .q-d{font-size:8px;color:var(--dim);margin-top:3px;line-height:1.7}
+  .quest a{color:var(--blue);text-decoration:none;border-bottom:1px dotted}
+  .chip{display:inline-block;border:1px solid var(--dim);padding:4px 8px;margin:4px;
+        font-size:8px;background:#00000044;color:var(--ink)}
+  .skill{display:flex;align-items:center;gap:10px;margin:6px 0}
+  .skill-n{font-size:9px;width:120px}
+  .fadein{animation:blink 1.2s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  footer{text-align:center;font-size:8px;color:var(--dim);margin-top:18px;letter-spacing:1px}
+  .next{background:var(--gold);color:#000;padding:8px 12px;display:inline-block;
+        border:3px outset #000;box-shadow:4px 4px 0 #000;text-decoration:none;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="panel">
+<header>
+  <div class="sprite">
+    <svg width="96" height="96" viewBox="0 0 16 16" shape-rendering="crispEdges">
+      <rect width="16" height="16" fill="#0a0a12"/>
+      <rect x="4" y="2" width="8" height="2" fill="#39405f"/>
+      <rect x="3" y="4" width="10" height="8" fill="#4a567a"/>
+      <rect x="5" y="6" width="2" height="2" fill="#f2e6c9"/>
+      <rect x="9" y="6" width="2" height="2" fill="#f2e6c9"/>
+      <rect x="5" y="6" width="1" height="1" fill="#000"/>
+      <rect x="10" y="6" width="1" height="1" fill="#000"/>
+      <rect x="6" y="10" width="4" height="1" fill="#f2e6c9"/>
+      <rect x="4" y="13" width="8" height="2" fill="#39405f"/>
+      <rect x="6" y="13" width="1" height="1" fill="#4ade80"/>
+      <rect x="9" y="13" width="1" height="1" fill="#f87171"/>
+    </svg>
+  </div>
+  <h1>SEANNEOL</h1>
+  <div class="sub">A software-engineering student from Selangor · level: homelab ascension</div>
+</header>
+
+<div class="bars" id="bars"></div>
+
+<h2>▶ QUEST LOG</h2>
+<div class="quest"><div class="q-t">[COMPLETED] Homelab coronation week</div><div class="q-d">k3s + Flux + cloudflared + Kuma + Turnstile — the lab breathes; <a href="https://lab.seanneol.com">visit the lab</a></div></div>
+<div class="quest"><div class="q-t">[COMPLETED] Sprite nine: portfolio birth</div><div class="q-d">docker v9 sealed · Kuma-arm synth · GitOps drums · doctrine inked; <a href="https://portfolio.seanneol.com">the sprite you own</a></div></div>
+<div class="quest"><div class="q-t">[ACTIVE] Source-room return</div><div class="q-d">app/(components) rejoin the drum; the painter's brush returns to the wall</div></div>
+
+<h2>▶ SKILL XP</h2>
+<div id="skills"></div>
+
+<h2>▶ INVENTORY</h2>
+<a class="chip" href="https://github.com/seanneol88">GitHub</a>
+<a class="chip" href="mailto:nolassean@gmail.com">Email</a>
+<a class="chip" href="https://seanneol.com">Kingdom HQ</a>
+<a class="chip" href="https://lab.seanneol.com">The Lab</a>
+
+<footer>
+  <div class="fadein">▮ git push is the spell</div>
+  <div>homelab natively sovereign · uptime arm #9 watches</div>
+</footer>
+</div>
+
+<p style="text-align:center;margin-top:10px;font-size:9px">
+  <a class="next" href="/">◀ NEXT ENGINE (classic face)</a>
+</p>
+
+</div>
+
+<script>
+const seg=(n,on,c)=>{let s='';for(let i=0;i<n;i++)s+=`<i class="${i<on?'on':'off'}" style="--c:${c}"></i>`;return s}
+const rows=[
+ ['HP',14,'var(--red)',10,'100%'],
+ ['MP',14,'var(--blue)',8,'57%'],
+ ['XP',14,'var(--green)',13,'94%'],
+]
+document.getElementById('bars').innerHTML=rows.map(([l,n,c,on,lab])=>`
+  <div class="bar-row"><div class="bar-lab">${l}</div>
+  <div class="seg">${seg(n,on,c)}</div>
+  <div class="xp">${lab}</div></div>`).join('')
+
+const skills=[
+ ['Linux', 12,'var(--red)'],['Docker', 12,'var(--blue)'],['Kubernetes', 9,'var(--green)'],
+ ['GitOps / Flux', 9,'var(--cyan)'],['Networks', 8,'var(--gold)'],['Go / bash', 8,'var(--red)'],
+ ['Next.js skin', 7,'var(--blue)'],['Cloudflare/Tunnels', 9,'var(--green)'],
+]
+document.getElementById('skills').innerHTML=skills.map(([n,lvl,c])=>`
+  <div class="skill"><div class="skill-n">${n}</div>
+  <div class="seg">${seg(16,lvl,c)}</div>
+  <div class="xp">Lv ${lvl}</div></div>`).join('')
+</script>
+</body>
+</html>
