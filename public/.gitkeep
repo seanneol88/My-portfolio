@@ -1,3 +1,0 @@
-# Keeps the public/ directory under version control.
-# Static assets served from / live here (e.g. resume.pdf — see src/data/portfolio.ts).
-# Do not delete this folder: the Dockerfile copies it into the production image.
