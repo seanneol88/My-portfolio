@@ -48,7 +48,25 @@ h2::before{content:"▸ "}
 .quest a{color:#d9ccff}
 
 .chips{position:relative;top:2px;display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-family:"Press Start 2P";font-size:8px;padding:7px 10px;background:#221838;border:2px solid var(--edge);color:#cabfe6}
+.chip{
+  font-family:"Press Start 2P";
+  font-size:8px;
+  padding:7px 10px;
+  background:#221838;
+  border:2px solid var(--edge);
+  color:#cabfe6;
+  text-decoration:none;
+  display:inline-block;
+  transition:transform .12s steps(2),border-color .12s steps(2),color .12s steps(2);
+}
+
+.chip:hover,
+.chip:focus-visible{
+  color:var(--acc);
+  border-color:var(--acc);
+  transform:translateY(-2px);
+  outline:none;
+}
 
 .skillrow{display:grid;gap:8px}
 .kv{display:flex;justify-content:space-between;font-size:12px;color:#b7aecb}
@@ -120,12 +138,22 @@ footer{text-align:center;color:#6f6688;font-size:11px;margin-top:40px}
   <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
   <h2>◆ INVENTORY</h2>
   <div class="chips">
-    <span class="chip">🗝️ github.com/seanneol88</span>
-    <span class="chip">📖 seanneol.com</span>
-    <span class="chip">🧪 lab.seanneol.com</span>
-    <span class="chip">📮 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4729282b26343422262907202a262e2b6924282a">[email&#160;protected]</a></span>
-    <span class="chip">⭐ goodreads (apex shrine)</span>
-  </div>
+  <a class="chip" href="https://github.com/seanneol88" target="_blank" rel="noopener noreferrer">
+    🗝️ github.com/seanneol88
+  </a>
+
+  <a class="chip" href="https://seanneol.com" target="_blank" rel="noopener noreferrer">
+    📖 seanneol.com
+  </a>
+
+  <a class="chip" href="https://lab.seanneol.com" target="_blank" rel="noopener noreferrer">
+    🧪 lab.seanneol.com
+  </a>
+
+  <a class="chip" href="mailto:nolassean@gmail.com">
+    📮 nolassean@gmail.com
+  </a>
+</div>
 </section>
 
 </div>
