@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: portfolio:rpg-v3
+          image: portfolio:rpg-seanneol-ebneazer-20261112-223956
           imagePullPolicy: IfNotPresent
           ports: [{containerPort: 80}]
           resources:
