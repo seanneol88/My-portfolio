@@ -13,7 +13,8 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: portfolio:rpg-inventory-links-20261112-230937          imagePullPolicy: IfNotPresent
+          image: portfolio:rpg-inventory-links-20261112-230937
+          imagePullPolicy: IfNotPresent
           ports: [{containerPort: 80}]
           resources:
             requests: {memory: "64Mi", cpu: "25m"}
