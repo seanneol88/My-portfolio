@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: portfolio:rpg-v2
+          image: portfolio:rpg-v3
           imagePullPolicy: IfNotPresent
           ports: [{containerPort: 80}]
           resources:
