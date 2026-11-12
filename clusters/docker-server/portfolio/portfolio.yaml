@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: portfolio:rpg-inventory-links-20261112-230937
+          image: portfolio:rpg-email-20261112-233117
           imagePullPolicy: IfNotPresent
           ports: [{containerPort: 80}]
           resources:
