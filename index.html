@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>seanneol · level-up portfolio</title>
+<meta name="description" content="Sean Neol Ebneazer — homelab king, builder of small sturdy organs. Pixel-quest portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#e7e3d6;--dim:#8d93a5;--bg:#0d0a17;--panel:#171226;--edge:#3d2f5e;--acc:#ffd23f;--xp:#7ee081;--hp:#ff5a5a;--mana:#59c2ff}
+*{box-sizing:border-box}html{color-scheme:dark}
+body{margin:0;background:var(--bg);color:#e7e3d6;font-family:ui-monospace,Menlo,Consola,monospace;line-height:1.6;
+background-image:repeating-linear-gradient(0deg,transparent,transparent 35px,#d7cdf708 35px,#d7cdf708 36px),repeating-linear-gradient(90deg,transparent,transparent 35px,#d7cdf708 35px,#d7cdf708 36px)}
+h1,h2,.px{font-family:"Press Start 2P",ui-monospace,monospace;letter-spacing:1px}
+.wrap{max-width:960px;margin:0 auto;padding:34px 18px 90px}
+
+/* RPG dialogue frame */
+.frame{background:var(--panel);border:3px solid var(--edge);position:relative;border-radius:4px;
+box-shadow: inset 0 0 0 3px #0d0a17, inset 0 0 0 5px #c9b8ff22}
+.frame::before{content:"";position:absolute;inset:-7px;border:2px solid #241a3d;border-radius:8px;pointer-events:none}
+.frame .corner{position:absolute;width:10px;height:10px;background:var(--acc);z-index:2}
+.corner.tl{top:-8px;left:-8px}.corner.tr{top:-8px;right:-8px}.corner.bl{bottom:-8px;left:-8px}.corner.br{bottom:-8px;right:-8px}
+
+header{display:flex;gap:22px;align-items:center;padding:22px}
+.sprite{width:64px;height:64px;image-rendering:pixelated;flex-shrink:0}
+.nameblock h1{font-size:18px;margin:0;color:var(--acc)}
+.nameblock p{margin:6px 0 0;color:#b7aecb;font-size:13px}
+
+/* stat bars */
+.stats{margin-top:18px;display:grid;gap:10px;font-size:12px}
+.bar{display:flex;align-items:center;gap:10px}
+.bar .lbl{width:64px;text-align:right;color:#9d94b3;font-family:"Press Start 2P";font-size:9px}
+.track{flex:1;height:14px;background:#0d0a17;border:2px solid var(--edge);position:relative}
+.seg{height:100%;display:flex}
+.seg i{width:8px;height:100%;display:inline-block}
+.hp .seg i{background:var(--hp)} .xp .seg i{background:var(--xp)} .mp .seg i{background:var(--mana)}
+.bar .val{font-size:10px;color:#9d94b3;width:78px}
+
+section{padding:20px;margin-top:26px}
+h2{font-size:12px;color:var(--acc);margin:0 0 18px}
+h2::before{content:"▸ "}
+
+.quest{border-left:3px solid var(--edge);margin:12px 0;padding:10px 14px;background:#120d20}
+.quest b{color:var(--xp)}
+.quest.done b::after{content:" ✓";color:var(--xp)}
+.quest.wip b::after{content:" …in progress";color:var(--acc);font-size:9px}
+.quest .reward{color:#8d84a5;font-size:12px}
+.quest a{color:#d9ccff}
+
+.chips{position:relative;top:2px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:"Press Start 2P";font-size:8px;padding:7px 10px;background:#221838;border:2px solid var(--edge);color:#cabfe6}
+
+.skillrow{display:grid;gap:8px}
+.kv{display:flex;justify-content:space-between;font-size:12px;color:#b7aecb}
+
+a, a:visited{color:#9fd4ff}
+footer{text-align:center;color:#6f6688;font-size:11px;margin-top:40px}
+.blink{animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(max-width:680px){header{flex-direction:column;align-items:flex-start}.bar .lbl{width:56px}.bar .val{width:70px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ░░ HERO ░░ -->
+<header class="frame">
+  <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  <div class="sprite" aria-hidden="true">
+    <svg viewBox="0 0 16 16" shape-rendering="crispEdges" width="64" height="64">
+      <rect x="5" y="1" width="6" height="2" fill="#c9a24b"/><rect x="4" y="3" width="8" height="1" fill="#c9a24b"/>
+      <rect x="4" y="4" width="8" height="4" fill="#ffd9a8"/><rect x="6" y="5" width="1" height="1" fill="#2b2140"/><rect x="9" y="5" width="1" height="1" fill="#2b2140"/>
+      <rect x="7" y="7" width="2" height="1" fill="#b0704f"/>
+      <rect x="3" y="8" width="10" height="4" fill="#4b3a7a"/><rect x="2" y="9" width="1" height="3" fill="#ffd9a8"/><rect x="13" y="9" width="1" height="3" fill="#ffd9a8"/>
+      <rect x="4" y="12" width="3" height="3" fill="#36295c"/><rect x="9" y="12" width="3" height="3" fill="#36295c"/>
+      <rect x="4" y="15" width="3" height="1" fill="#1b1430"/><rect x="9" y="15" width="3" height="1" fill="#1b1430"/>
+    </svg>
+  </div>
+  <div class="nameblock">
+    <h1>SEANNEOL</h1>
+    <p>🏯 homelab king · ⚙️ ships self-healing infra · 🐟 Sean Neol Ebneazer — tax-practitioner by daylight, Opnsverse cartographer by night</p>
+    <div class="stats">
+      <div class="bar hp"><span class="lbl">HP</span><div class="track"><div class="seg" id="hp"></div></div><span class="val">100/100</span></div>
+      <div class="bar mp"><span class="lbl">MP</span><div class="track"><div class="seg" id="mp"></div></div><span class="val">88/100</span></div>
+      <div class="bar xp"><span class="lbl">XP</span><div class="track"><div class="seg" id="xp"></div></div><span class="val">LVL 23</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ░░ QUEST LOG ░░ -->
+<section class="frame">
+  <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  <h2>◆ QUEST LOG</h2>
+  <div class="quest done"><b>MAIN: Restore the domain's name</b><div class="reward">ICANN verification rite · NS returned to OPAL/REMY Cloudflare steeds · reward: kingdom reachable again</div></div>
+  <div class="quest done"><b>MAIN: Crown the apex</b><div class="reward"><a href="https://seanneol.com" target="_blank">seanneol.com</a> now wears the reading-face · <a href="https://www.seanneol.com" target="_blank">www</a> bows in agreement</div></div>
+  <div class="quest done"><b>MAIN: Pod-carried laboratory</b><div class="reward"><a href="https://lab.seanneol.com" target="_blank">lab.seanneol.com</a> — converter · docs · pocket AI, 2×replicas on k3s · reward: brain changes by env alone</div></div>
+  <div class="quest done"><b>MAIN: The GitOps drum</b><div class="reward">FluxCD two-drum choir: repo push = cluster reality · scars bottled in the codex</div></div>
+  <div class="quest done"><b>MAIN: Turnstile shield</b><div class="reward">strangers meet `prove humanity` · healthz stays bare for watchers</div></div>
+  <div class="quest wip"><b>SIDE: This portfolio you are viewing</b><div class="reward">self-hosted on portfolio.seanneol.com · beats by GitOps since its first commit</div></div>
+</section>
+
+<!-- ░░ SKILLS / XP ░░ -->
+<section class="frame">
+  <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  <h2>◆ SKILL XP</h2>
+  <div class="skillrow">
+    <div class="kv"><span>bash / systems ops</span><span class="px">▓▓▓▓▓▓▓▓▓░ 90</span></div>
+    <div class="kv"><span>docker / compose lore</span><span class="px">▓▓▓▓▓▓▓▓▓░ 92</span></div>
+    <div class="kv"><span>kubernetes / k3s (one-node monasteries)</span><span class="px">▓▓▓▓▓▓▓░ 70</span></div>
+    <div class="kv"><span>flux / gitops discipline</span><span class="px">▓▓▓▓▓▓░░ 62</span></div>
+    <div class="kv"><span>cloudflare (tunnel · access · turnstile)</span><span class="px">▓▓▓▓▓▓▓▓░ 84</span></div>
+    <div class="kv"><span>go / python micro-services</span><span class="px">▓▓▓▓▓▓▓░ 72</span></div>
+    <div class="kv"><span>backups — restic daily + verify-rites</span><span class="px">▓▓▓▓▓▓▓▓░ 81</span></div>
+    <div class="kv"><span>documentation-as-artifact (scar archive)</span><span class="px">▓▓▓▓▓▓▓▓▓▓ 96</span></div>
+  </div>
+</section>
+
+<!-- ░░ INVENTORY ░░ -->
+<section class="frame">
+  <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  <h2>◆ INVENTORY</h2>
+  <div class="chips">
+    <span class="chip">🗝️ github.com/seanneol88</span>
+    <span class="chip">📖 seanneol.com</span>
+    <span class="chip">🧪 lab.seanneol.com</span>
+    <span class="chip">📮 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4729282b26343422262907202a262e2b6924282a">[email&#160;protected]</a></span>
+    <span class="chip">⭐ goodreads (apex shrine)</span>
+  </div>
+</section>
+
+</div>
+<footer>crafted with one 4GB server, one tunnel &amp; one ironclad doctrine: <span class="blink">git push is the spell</span> ▊</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function seg(id,count,color){const e=document.getElementById(id);for(let i=0;i<12;i++){const b=document.createElement('i');if(i<count)b.style.background='';}
+}
+/* pixel-segmented bars: N of 12 blocks filled */
+(function(){
+  const fill=(id,n,col)=>{const t=document.getElementById(id);for(let i=0;i<12;i++){const b=document.createElement('i');b.style.background=i<n?col:'transparent';b.style.width='8.33%';b.style.height='100%';t.appendChild(b)}}
+  fill('hp',12,'var(--hp)');fill('mp',11,'var(--mana)');fill('xp',9,'var(--xp)');
+})();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5932022aa7efde3',t:'MTc5NDQ2MTIyNQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5932022aa7efde3',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
